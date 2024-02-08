@@ -10,6 +10,7 @@ DOWNLOAD_FILE=${DOWNLOAD_FOLDER}/node${NODE_VERSION}.tar.gz
 
 export NodeInstallDir="/tmp/node$NODE_VERSION"
 export NodeDir="$NodeInstallDir/node-v${NODE_VERSION}-linux-x64"
+export NodeDir="/tmp/node$NODE_VERSION"
 
 mkdir -p $NodeInstallDir
 
@@ -39,9 +40,6 @@ if [ ! -f $NodeDir/bin/node ]; then
   tar xzf ${DOWNLOAD_FILE} -C $NodeInstallDir
 fi
 
-ls "$NodeDir"
-echo "---"
-ls "$NodeDir/bin"
 if [ ! -f $NodeDir/bin/node ]; then
   echo "       **ERROR** Could not download nodejs"
   exit 1
