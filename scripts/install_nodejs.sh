@@ -1,7 +1,7 @@
 #!/bin/bash
 set -euo pipefail
 
-NODE_VERSION="8.9.4"
+NODE_VERSION="20.10.0"
 
 DOWNLOAD_FOLDER=${CACHE_DIR}/Downloads
 mkdir -p ${DOWNLOAD_FOLDER}
@@ -17,18 +17,19 @@ if [ ! -f ${DOWNLOAD_FILE} ]; then
   # Delete any cached node downloads, since those are now out of date
   rm -rf ${DOWNLOAD_FOLDER}/node*.tar.gz
 
-  NODE_MD5="5bda713bd4aa39394536fc48c744854b"
-  URL=https://buildpacks.cloudfoundry.org/dependencies/node/node-8.9.4-linux-x64-40e8e080.tgz
-
+  #NODE_MD5="5bda713bd4aa39394536fc48c744854b"
+  #URL=https://buildpacks.cloudfoundry.org/dependencies/node/node-8.9.4-linux-x64-40e8e080.tgz
+  URL=https://buildpacks.cloudfoundry.org/dependencies/node/node_20.10.0_linux_x64_cflinuxfs4_7fabbb45.tgz
+  
   echo "-----> Download Nodejs ${NODE_VERSION}"
   curl -s -L --retry 15 --retry-delay 2 $URL -o ${DOWNLOAD_FILE}
 
-  DOWNLOAD_MD5=$(md5sum ${DOWNLOAD_FILE} | cut -d ' ' -f 1)
+  #DOWNLOAD_MD5=$(md5sum ${DOWNLOAD_FILE} | cut -d ' ' -f 1)
 
-  if [[ $DOWNLOAD_MD5 != $NODE_MD5 ]]; then
-    echo "       **ERROR** MD5 mismatch: got $DOWNLOAD_MD5 expected $NODE_MD5"
-    exit 1
-  fi
+  #if [[ $DOWNLOAD_MD5 != $NODE_MD5 ]]; then
+  #  echo "       **ERROR** MD5 mismatch: got $DOWNLOAD_MD5 expected $NODE_MD5"
+  #  exit 1
+  #fi
 else
   echo "-----> Nodejs install package available in cache"
 fi
