@@ -39,6 +39,9 @@ if [ ! -f $NodeDir/bin/node ]; then
   tar xzf ${DOWNLOAD_FILE} -C $NodeInstallDir
 fi
 
+ls "$NodeDir"
+echo "---"
+ls "$NodeDir/bin"
 if [ ! -f $NodeDir/bin/node ]; then
   echo "       **ERROR** Could not download nodejs"
   exit 1
