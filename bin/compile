@@ -88,10 +88,10 @@ if [ ! -d "$CACHE_DIR/npm_cache" ]; then
   mkdir -p "$CACHE_DIR/npm_cache"
 fi
 
-npm install -g npm-check-updates
-ncu
-ncu -u
-npm install
+#npm install -g npm-check-updates
+#ncu
+#ncu -u
+#npm install
 
 if [ "$NEED_NODE" == "true" ]; then
   npm config set cache $CACHE_DIR/npm_cache
