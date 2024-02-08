@@ -3,8 +3,9 @@ set -euo pipefail
 
 NODE_VERSION="20.10.0"
 
-DOWNLOAD_FOLDER=${CACHE_DIR}/Downloads
+DOWNLOAD_FOLDER=/tmp/Downloads
 mkdir -p ${DOWNLOAD_FOLDER}
+
 DOWNLOAD_FILE=${DOWNLOAD_FOLDER}/node${NODE_VERSION}.tar.gz
 
 export NodeInstallDir="/tmp/node$NODE_VERSION"
